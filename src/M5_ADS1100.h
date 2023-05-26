@@ -90,10 +90,10 @@ class ADS1100 {
    protected:
     // Instance-specific properties
     uint8_t ads_conversionDelay;
-    adsOSMode_t ads_osmode;
-    adsMode_t ads_mode;
-    adsRate_t ads_rate;
-    adsGain_t ads_gain;
+    adsOSMode_t ads_osmode = OSMODE_SINGLE;
+    adsMode_t ads_mode = MODE_CONTIN;
+    adsRate_t ads_rate = RATE_8;
+    adsGain_t ads_gain = GAIN_ONE;
 
    public:
     uint8_t ads_i2cAddress;

@@ -101,8 +101,7 @@ adsGain_t ADS1100::getGain() {
     Generates a signed value since the difference can be either
     positive or negative.*/
 int16_t ADS1100::Measure_Differential() {
-    // Start with default values
-    uint16_t config;
+    uint16_t config = 0;
 
     // Set Operational status/single-shot conversion start
     config |= ads_osmode;
