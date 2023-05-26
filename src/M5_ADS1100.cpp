@@ -41,10 +41,14 @@ static uint16_t readRegister(uint8_t i2cAddress) {
     return (int16_t)((i2cread() << 8) | i2cread());
 }
 
-/*! @brief Instantiates a new ADS1100 class with appropriate properties.*/
-void ADS1100::getAddr_ADS1100(uint8_t i2cAddress) {
-    ads_i2cAddress      = i2cAddress;
-    ads_conversionDelay = ADS1100_CONVERSIONDELAY;
+/*! @brief Get ADS1100 I2C address */
+uint8_t ADS1100::getAddr(void) {
+    return ads_i2cAddress;
+}
+
+/*! @brief Set ADS1100 I2C address */
+void ADS1100::setAddr(uint8_t i2cAddress) {
+    ads_i2cAddress = i2cAddress;
 }
 
 /*! @brief Sets up the Hardware.*/

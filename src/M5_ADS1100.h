@@ -89,15 +89,16 @@ typedef enum {
 class ADS1100 {
    protected:
     // Instance-specific properties
-    uint8_t ads_conversionDelay;
+    uint8_t ads_conversionDelay = ADS1100_CONVERSIONDELAY;
     adsOSMode_t ads_osmode = OSMODE_SINGLE;
     adsMode_t ads_mode = MODE_CONTIN;
     adsRate_t ads_rate = RATE_8;
     adsGain_t ads_gain = GAIN_ONE;
 
    public:
-    uint8_t ads_i2cAddress;
-    void getAddr_ADS1100(uint8_t i2cAddress);
+    uint8_t ads_i2cAddress = ADS1100_DEFAULT_ADDRESS;
+    void setAddr(uint8_t i2cAddress);
+    uint8_t getAddr(void);
     void begin(void);
     int16_t Measure_Differential();
     void setOSMode(adsOSMode_t osmode);
